@@ -12,7 +12,7 @@ class QuotePage {
     private val parentIdMatcher : Matcher<View> = withParent(withId(R.id.rootLayout))
     private val parentClassMatcher : Matcher<View> = withParent(isAssignableFrom(LinearLayout::class.java))
 
-    private val textUi = TextUi(parentIdMatcher = parentIdMatcher, parentClassMatcher = parentClassMatcher)
+    private val textUi = TextUi(id = R.id.quoteTextView,parentIdMatcher = parentIdMatcher, parentClassMatcher = parentClassMatcher)
     private val buttonUi = ButtonUi(parentIdMatcher = parentIdMatcher, parentClassMatcher = parentClassMatcher)
     private val progressUi = ProgressUi(parentIdMatcher = parentIdMatcher, parentClassMatcher = parentClassMatcher)
 
