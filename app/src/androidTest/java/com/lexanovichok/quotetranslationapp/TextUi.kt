@@ -16,13 +16,13 @@ import org.hamcrest.Matchers.allOf
  * 1. color
  * 2. text
  */
-class TextUi(id : Int, parentIdMatcher: Matcher<View>, parentClassMatcher: Matcher<View>) {
+class TextUi(parentIdMatcher: Matcher<View>, parentClassMatcher: Matcher<View>) {
 
     private val interaction : ViewInteraction = onView(
         allOf(
             parentIdMatcher,
             parentClassMatcher,
-            withId(id),
+            withId(R.id.mainTextView),
             isAssignableFrom(TextView::class.java)
         )
     )
