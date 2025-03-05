@@ -22,7 +22,7 @@ class TextUi(parentIdMatcher: Matcher<View>, parentClassMatcher: Matcher<View>) 
         allOf(
             parentIdMatcher,
             parentClassMatcher,
-            withId(R.id.mainTextView),
+            withId(R.id.quoteTextView),
             isAssignableFrom(TextView::class.java)
         )
     )

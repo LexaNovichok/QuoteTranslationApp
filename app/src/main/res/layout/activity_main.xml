@@ -9,24 +9,23 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/mainTextView"
+    <com.lexanovichok.quotetranslationapp.views.text.CustomTextView
+        android:id="@+id/quoteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Hello World!"
         android:textColor="@color/red"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
 
-    <Button
-        android:id="@+id/quoteButton"
-        tools:text="retry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ProgressBar
+    <com.lexanovichok.quotetranslationapp.views.progress.CustomProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <com.lexanovichok.quotetranslationapp.views.button.CustomButton
+        android:id="@+id/quoteButton"
+        tools:text="retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
