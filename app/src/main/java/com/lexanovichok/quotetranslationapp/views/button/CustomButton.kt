@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.View
+import androidx.annotation.StringRes
 import androidx.lifecycle.findViewTreeLifecycleOwner
 import com.google.android.material.button.MaterialButton
 import com.lexanovichok.quotetranslationapp.core.ProvideViewModel
@@ -36,8 +37,8 @@ class CustomButton : MaterialButton, UpdateCustomButton {
         }
     }
 
-    override fun update(text: String, visible: Boolean) {
-        setText(text)
+    override fun update(@StringRes textResId: Int, visible: Boolean) {
+        setText(textResId)
         visibility = if (visible) View.VISIBLE else View.GONE
     }
 
@@ -59,5 +60,5 @@ class CustomButton : MaterialButton, UpdateCustomButton {
 
 interface UpdateCustomButton {
 
-    fun update(text: String, visible: Boolean)
+    fun update(@StringRes textResId: Int, visible: Boolean)
 }

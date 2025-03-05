@@ -1,10 +1,11 @@
-package com.lexanovichok.quotetranslationapp
+package com.lexanovichok.quotetranslationapp.quote
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.lexanovichok.quotetranslationapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

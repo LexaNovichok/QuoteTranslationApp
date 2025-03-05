@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".quote.MainActivity">
 
     <com.lexanovichok.quotetranslationapp.views.text.CustomTextView
         android:id="@+id/quoteTextView"

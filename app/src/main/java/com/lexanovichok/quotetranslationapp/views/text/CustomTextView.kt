@@ -18,7 +18,8 @@ class CustomTextView : androidx.appcompat.widget.AppCompatTextView, UpdateCustom
 
     override fun getFreezesText() = true
 
-    override fun show(color: Int) {
+    override fun update(text: String, @ColorRes color: Int) {
+        this.text = text
         setTextColor(resources.getColor(color, null))
     }
 
@@ -43,11 +44,11 @@ class CustomTextView : androidx.appcompat.widget.AppCompatTextView, UpdateCustom
         val restoredState = state as CustomTvSavedState
         super.onRestoreInstanceState(restoredState.superState)
         val permanentState = restoredState.restore()
-        show(permanentState.color)
+        setTextColor(resources.getColor(permanentState.color, null))
     }
 
 }
 
 interface UpdateCustomTv {
-    fun show(@ColorRes color : Int)
+    fun update(text: String, @ColorRes color : Int)
 }

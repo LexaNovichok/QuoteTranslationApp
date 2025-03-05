@@ -2,6 +2,7 @@ package com.lexanovichok.quotetranslationapp
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.lexanovichok.quotetranslationapp.quote.MainActivity
 
 import org.junit.Test
 import org.junit.runner.RunWith
