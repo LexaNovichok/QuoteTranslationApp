@@ -13,6 +13,7 @@ class CustomButtonViewModel(
 ) : ViewModel(), LiveDataWrapper.Read<CustomButtonUiState> {
 
     private val viewModelScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+
     override fun liveData(): LiveData<CustomButtonUiState> = liveDataWrapper.liveData()
 
     fun handleClick() {

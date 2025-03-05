@@ -1,18 +1,16 @@
 package com.lexanovichok.quotetranslationapp
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 
 @RunWith(AndroidJUnit4::class)
-class ScenarioText {
+class ScenarioTest {
 
     @get:Rule
     val activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
@@ -44,14 +42,22 @@ class ScenarioText {
 
         clickQuoteButton()
         checkProgressState()
+        activityScenarioRule.scenario.recreate()
+        checkProgressState()
 
         waitTillProgressGone()
+        checkErrorState(message = "No internet connection")
+        activityScenarioRule.scenario.recreate()
         checkErrorState(message = "No internet connection")
 
         clickRetryButton()
         checkProgressState()
+        activityScenarioRule.scenario.recreate()
+        checkProgressState()
 
         waitTillProgressGone()
+        checkQuoteState(quote = "Fake quote number 1")
+        activityScenarioRule.scenario.recreate()
         checkQuoteState(quote = "Fake quote number 1")
     }
 }

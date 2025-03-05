@@ -11,14 +11,20 @@ import com.lexanovichok.quotetranslationapp.views.button.CustomButtonViewModel
 
 class CustomProgressBar : ProgressBar, UpdateCustomProgress {
 
-    constructor(context : Context) : super(context)
-    constructor(context : Context, attributeSet : AttributeSet) : super(context, attributeSet)
-    constructor(context : Context, attributeSet : AttributeSet, defStyleAttrs : Int) : super(context, attributeSet, defStyleAttrs)
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet)
+    constructor(context: Context, attributeSet: AttributeSet, defStyleAttrs: Int) : super(
+        context,
+        attributeSet,
+        defStyleAttrs
+    )
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-        val viewModel : CustomProgressViewModel = (context.applicationContext as ProvideViewModel).viewModel(
-            CustomProgressViewModel::class.java)
+        val viewModel: CustomProgressViewModel =
+            (context.applicationContext as ProvideViewModel).viewModel(
+                CustomProgressViewModel::class.java
+            )
 
         viewModel.liveData().observe(findViewTreeLifecycleOwner()!!) { uiState ->
             uiState.show(this)
@@ -30,22 +36,21 @@ class CustomProgressBar : ProgressBar, UpdateCustomProgress {
     }
 
     override fun onSaveInstanceState(): Parcelable? {
-         return super.onSaveInstanceState()?.let {
-             val state = CustomProgressSavedState(it)
-             state.save(CustomProgressPermanentState(visibility))
-             return state
-         }
+        return super.onSaveInstanceState()?.let {
+            val state = CustomProgressSavedState(it)
+            state.save(CustomProgressPermanentState(visibility))
+            return state
+        }
     }
 
     override fun onRestoreInstanceState(state: Parcelable?) {
         val restoredState = state as CustomProgressSavedState
         super.onRestoreInstanceState(restoredState.superState)
         val permanentState = restoredState.restore()
-        this.visibility = permanentState.visibility
-
+        visibility = permanentState.visibility
     }
 }
 
 interface UpdateCustomProgress {
-    fun update(visible : Boolean)
+    fun update(visible: Boolean)
 }
